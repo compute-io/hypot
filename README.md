@@ -44,8 +44,8 @@ $ node ./examples/index.js
 The standard approach to calculating the hypotenuse is subject to overflows.
 
 ``` javascript
-var a2 = a*a;
-var b2 = b*b;
+var a2 = a * a;
+var b2 = b * b;
 var c = Math.sqrt( a2 + b2 );
 ```
 
