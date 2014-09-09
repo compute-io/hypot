@@ -25,12 +25,16 @@
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "hypotenuse",
+    "geometry"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/hypot/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-number": "^1.0.0"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "mocha": "1.x.x",

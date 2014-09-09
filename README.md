@@ -19,14 +19,17 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var lib = require( 'compute-hypot' );
+var hypot = require( 'compute-hypot' );
 ```
 
 
 ## Examples
 
 ``` javascript
-var lib = require( 'compute-hypot' );
+var a = 10,
+	b = 12;
+
+console.log( hypot( a, b ) );
 ```
 
 To run the example code from the top-level application directory,
@@ -34,6 +37,21 @@ To run the example code from the top-level application directory,
 ``` bash
 $ node ./examples/index.js
 ```
+
+
+## Notes
+
+The standard approach to calculating the hypotenuse is subject to overflows.
+
+``` javascript
+var a2 = a*a;
+var b2 = b*b;
+var c = Math.sqrt( a2 + b2 );
+```
+
+For a sufficiently large `a` or `b`, calculating the square will overflow resulting in an infinite result.
+
+An alternative [approach](http://www.johndcook.com/blog/2010/06/02/whats-so-hard-about-finding-a-hypotenuse/) is numerically stable and avoids this problem. This approach is implemented here.
 
 
 ## Tests
