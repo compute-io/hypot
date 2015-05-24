@@ -1,3 +1,5 @@
+'use strict';
+
 var hypot = require( './../lib' );
 
 var a = 10,
