@@ -1,3 +1,5 @@
+/* global require, describe, it */
+'use strict';
 
 // MODULES //
 
@@ -17,7 +19,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'compute-hypot', function tests() {
-	'use strict';
 
 	it( 'should export a function', function test() {
 		expect( hypot ).to.be.a( 'function' );
