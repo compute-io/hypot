@@ -1,7 +1,7 @@
 {
   "name": "compute-hypot",
   "version": "1.0.0",
-  "description": "Computes the hypotenuse of a right triangle.",
+  "description": "Computes the square root of a sum of squares.",
   "author": {
     "name": "Athan Reines",
     "email": "kgryte@gmail.com"
@@ -31,19 +31,29 @@
     "compute",
     "computation",
     "hypotenuse",
-    "geometry"
+    "geometry",
+    "hypot",
+    "triangle",
+    "pythagoras",
+    "pythagorean theorem",
+    "euclid",
+    "trigonometry",
+    "trig",
+    "array",
+    "accessor",
+    "scalar"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/hypot/issues"
   },
-  "dependencies": {
-    "validate.io-number": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "2.x.x",
     "mocha": "2.x.x",
     "coveralls": "^2.11.1",
-    "istanbul": "^0.3.0"
+    "istanbul": "^0.3.0",
+    "jshint": "2.x.x",
+    "jshint-stylish": "^1.0.0"
   },
-  "license": "MIT"  
+  "license": "MIT"
 }

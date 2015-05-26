@@ -2,7 +2,12 @@
 
 var hypot = require( './../lib' );
 
-var a = 10,
-	b = 12;
+var a = new Array( 100 ),
+	b = new Array( a.length );
 
-console.log( hypot( a, b ) );
+for ( var i = 0; i < a.length; i++ ) {
+	a[ i ] = Math.round( Math.random()*100 );
+	b[ i ] = Math.round( Math.random()*100 );
+}
+
+console.log( hypot( a, b ).join( '\n' ) );

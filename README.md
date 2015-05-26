@@ -2,7 +2,7 @@ hypot
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes the hypotenuse of a right triangle.
+> Computes the square root of a sum of squares.
 
 
 ## Installation
@@ -16,9 +16,50 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-
 ``` javascript
 var hypot = require( 'compute-hypot' );
+```
+
+#### hypot( a, b[, opts] )
+
+Computes the square root of a sum of squares. The function accepts for its first two arguments either `numeric` values, `arrays`, or some combination of both.
+
+``` javascript
+var c = hypot( -5, 12 );
+// returns 13
+```
+
+When provided an input `array`, the square root of the sum of squares is computed for each value. If either `a` or `b` is a scalar, the function expands the scalar to match the output `array` length.
+
+``` javascript
+var out;
+
+out = hypot( [1,2,3], 5 );
+// returns [...]
+
+out = hypot( 5, [1,2,3] );
+// returns [...]
+
+out = hypot( [1,2,3], [4,5,6] );
+// returns [...]
+```
+
+The function accepts the following `options`:
+
+*	__accessor__: accessor `function` for accessing `array` values
+
+For non-numeric `arrays`, provide an accessor `function` for accessing `array` values.
+
+``` javascript
+
+```
+
+
+When `a` and `b` are both positive numbers, the result can be interpreted as the [hypotenuse](http://en.wikipedia.org/wiki/Pythagorean_theorem) of a right triangle.
+
+``` javascript
+var h = hypot( 5, 12 );
+// returns 13
 ```
 
 
@@ -27,10 +68,15 @@ var hypot = require( 'compute-hypot' );
 ``` javascript
 var hypot = require( 'compute-hypot' );
 
-var a = 10,
-	b = 12;
+var a = new Array( 100 ),
+	b = new Array( a.length );
 
-console.log( hypot( a, b ) );
+for ( var i = 0; i < a.length; i++ ) {
+	a[ i ] = Math.round( Math.random()*100 );
+	b[ i ] = Math.round( Math.random()*100 );
+}
+
+console.log( hypot( a, b ).join( '\n' ) );
 ```
 
 To run the example code from the top-level application directory,
@@ -52,7 +98,19 @@ var c = Math.sqrt( a2 + b2 );
 
 For a sufficiently large `a` or `b`, calculating the square will overflow resulting in an infinite result.
 
+``` javascript
+var a2 = 1e154 * 1e154;
+var b2 = 1e154 * 1e154;
+var c = Math.sqrt( a2 + b2 );
+// returns +infinity
+```
+
 An alternative [approach](http://www.johndcook.com/blog/2010/06/02/whats-so-hard-about-finding-a-hypotenuse/) is numerically stable and avoids this problem. This approach is implemented here.
+
+``` javascript
+var c = hypot( 1e308, 1e308 );
+// returns ~1.4142e308
+```
 
 
 ## Tests

@@ -26,15 +26,16 @@ describe( 'compute-hypot', function tests() {
 
 	it( 'should throw an error if provided non-numeric values', function test() {
 		var values = [
-				'5',
-				[],
-				true,
-				undefined,
-				null,
-				NaN,
-				function(){},
-				{}
-			];
+			'5',
+			new Number( 5 ),
+			[],
+			true,
+			undefined,
+			null,
+			NaN,
+			function(){},
+			{}
+		];
 
 		for ( var i = 0; i < values.length; i++ ) {
 			expect( badValue1( values[i] ) ).to.throw( TypeError );
@@ -55,6 +56,7 @@ describe( 'compute-hypot', function tests() {
 	it( 'should compute the hypotenuse', function test() {
 		assert.strictEqual( hypot( 3, 4 ), 5 );
 		assert.strictEqual( hypot( 8, 6 ), 10 );
+		assert.strictEqual( hypot( 5, 12 ), 13 );
 	});
 
 });
